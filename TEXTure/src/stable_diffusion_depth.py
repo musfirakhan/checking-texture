@@ -24,7 +24,7 @@ class StableDiffusion(nn.Module):
         super().__init__()
 
         # Hardcode the Hugging Face token
-        self.token = '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'
+        self.token = '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'
         logger.info(f'Using hardcoded Hugging Face access token!')
 
         self.device = device
