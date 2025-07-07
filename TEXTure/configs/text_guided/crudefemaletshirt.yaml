@@ -1,7 +1,7 @@
 log:
   exp_name: crudefemaletshirt
 guide:
-  text: "A stylish shirt with big flower in the front and keep the rest of the shirt as plan, {} view"
+  text: "A stylish shirt with a large flower design on the front, and the rest of the shirt plain, {} view"
   diffusion_name: stabilityai/stable-diffusion-2-depth
   shape_scale: 0.6
   append_direction: True
