@@ -1,6 +1,7 @@
 from diffusers import AutoencoderKL, UNet2DConditionModel, PNDMScheduler
 from huggingface_hub import hf_hub_download
 from transformers import CLIPTextModel, CLIPTokenizer, logging
+from pathlib import Path
 
 # suppress partial model loading warning
 from src import utils
@@ -23,9 +24,15 @@ class StableDiffusion(nn.Module):
                  use_inpaint=False):
         super().__init__()
 
-        # Hardcode the Hugging Face token
-        self.token = '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'
-        logger.info(f'Using hardcoded Hugging Face access token!')
+        # Load the Hugging Face token from the TOKEN file in the project root
+        token_path = Path(__file__).resolve().parent.parent / 'TOKEN'
+        if not token_path.exists():
+            raise FileNotFoundError(
+                f"Hugging Face access token file not found at {token_path}. Please create a file named 'TOKEN' in the project root containing your access token."
+            )
+        with open(token_path, 'r') as f:
+            self.token = f.read().strip()
+        logger.info(f'Loaded Hugging Face access token from TOKEN file!')
 
         self.device = device
         self.latent_mode = latent_mode
