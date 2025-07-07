@@ -1,11 +1,11 @@
 log:
-  exp_name: shoes
+  exp_name: crudefemaletshirt
 guide:
-  text: "A stylish pair of shoes, {} view"
+  text: "A stylish shirt with big flower in the front and keep the rest of the shirt as plan, {} view"
   diffusion_name: stabilityai/stable-diffusion-2-depth
   shape_scale: 0.6
   append_direction: True
-  shape_path: shapes/shoes05.obj
+  shape_path: shapes/crudefemaletshirt.obj
   texture_resolution: 1024
   guidance_scale: 10
   texture_interpolation_mode: 'bilinear'
